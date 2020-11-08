@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker-compose build \
+  && docker-compose run app bash -c "shards install && just develop"

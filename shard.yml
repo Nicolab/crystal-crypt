@@ -1,0 +1,12 @@
+name: crypt
+version: 0.1.0
+crystal: 0.35.1
+
+authors:
+  - Nicolas Talle <dev@nicolab.net>
+
+license: MIT
+
+targets:
+  crypt:
+    main: src/crypt.cr
