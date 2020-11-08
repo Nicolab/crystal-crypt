@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="master">
+<meta name="crystal_docs.project_name" content="crypt">
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="crypt">
+  <title>Crypt::Crypter - crypt master</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          crypt
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="crypt/Crypt" data-name="crypt">
+      <a href="../Crypt.html">Crypt</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crypt/Crypt/BytesizeError" data-name="crypt::bytesizeerror">
+      <a href="../Crypt/BytesizeError.html">BytesizeError</a>
+      
+    </li>
+  
+  <li class=" current" data-id="crypt/Crypt/Crypter" data-name="crypt::crypter">
+      <a href="../Crypt/Crypter.html">Crypter</a>
+      
+    </li>
+  
+  <li class=" " data-id="crypt/Crypt/CryptError" data-name="crypt::crypterror">
+      <a href="../Crypt/CryptError.html">CryptError</a>
+      
+    </li>
+  
+  <li class=" " data-id="crypt/Crypt/SecretKeyError" data-name="crypt::secretkeyerror">
+      <a href="../Crypt/SecretKeyError.html">SecretKeyError</a>
+      
+    </li>
+  
+  <li class=" " data-id="crypt/Crypt/SignatureError" data-name="crypt::signatureerror">
+      <a href="../Crypt/SignatureError.html">SignatureError</a>
+      
+    </li>
+  
+  <li class=" " data-id="crypt/Crypt/Signer" data-name="crypt::signer">
+      <a href="../Crypt/Signer.html">Signer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Crypt::Crypter
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Crypt/Crypter.html">Crypt::Crypter</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Encrypt / Decrypt using OpenSSL Cipher.
+See https://crystal-lang.org/api/OpenSSL/Cipher.html</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(secret:String,digest=:sha1,cipher_algo=&quot;aes-256-cbc&quot;)-class-method" class="signature"><strong>.new</strong>(secret : String, digest = <span class="n">:sha1</span>, cipher_algo = <span class="s">&quot;aes-256-cbc&quot;</span>)</a>
+        
+          <div class="summary"><p>Creates a new <code><a href="../Crypt/Crypter.html">Crypter</a></code> instance.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#cipher_decrypt(value:Bytes):Bytes-instance-method" class="signature"><strong>#cipher_decrypt</strong>(value : Bytes) : Bytes</a>
+        
+          <div class="summary"><p>Decrypt <em>value</em> encrypted by <code><a href="../Crypt/Crypter.html#cipher_encrypt(value):Bytes-instance-method">#cipher_encrypt</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cipher_encrypt(value):Bytes-instance-method" class="signature"><strong>#cipher_encrypt</strong>(value) : Bytes</a>
+        
+          <div class="summary"><p>Encrypt the <em>value</em> which should be decrypted by <code><a href="../Crypt/Crypter.html#cipher_decrypt(value:Bytes):Bytes-instance-method">#cipher_decrypt</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#decrypt(value:Bytes,kind:Symbol,sign_error=Signer::INVALID_SIGN):Bytes-instance-method" class="signature"><strong>#decrypt</strong>(value : Bytes, kind : Symbol, sign_error = <span class="t">Signer</span><span class="t">::</span><span class="t">INVALID_SIGN</span>) : Bytes</a>
+        
+          <div class="summary"><p>Equivalent to <code><a href="../Crypt/Crypter.html#verify_and_decrypt(value:String,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">#verify_and_decrypt</a></code>, just a shortcut.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#decrypt(value:String,kind:Symbol,sign_error=Signer::INVALID_SIGN):Bytes-instance-method" class="signature"><strong>#decrypt</strong>(value : String, kind : Symbol, sign_error = <span class="t">Signer</span><span class="t">::</span><span class="t">INVALID_SIGN</span>) : Bytes</a>
+        
+          <div class="summary"><p>Equivalent to <code><a href="../Crypt/Crypter.html#verify_and_decrypt(value:String,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">#verify_and_decrypt</a></code>, just a shortcut.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#decrypt(value:Bytes):Bytes-instance-method" class="signature"><strong>#decrypt</strong>(value : Bytes) : Bytes</a>
+        
+          <div class="summary"><p>Equivalent to <code><a href="../Crypt/Crypter.html#cipher_decrypt(value:Bytes):Bytes-instance-method">#cipher_decrypt</a></code>, just a shortcut.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#encrypt(value:Bytes,kind:Symbol):String-instance-method" class="signature"><strong>#encrypt</strong>(value : Bytes, kind : Symbol) : String</a>
+        
+          <div class="summary"><p>Equivalent to <code><a href="../Crypt/Crypter.html#encrypt_and_sign(value:Bytes):String-instance-method">#encrypt_and_sign</a></code>, just a shortcut.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#encrypt(value:String,kind:Symbol):String-instance-method" class="signature"><strong>#encrypt</strong>(value : String, kind : Symbol) : String</a>
+        
+          <div class="summary"><p>Equivalent to <code><a href="../Crypt/Crypter.html#encrypt_and_sign(value:Bytes):String-instance-method">#encrypt_and_sign</a></code>, just a shortcut.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#encrypt(value):Bytes-instance-method" class="signature"><strong>#encrypt</strong>(value) : Bytes</a>
+        
+          <div class="summary"><p>Equivalent to <code><a href="../Crypt/Crypter.html#cipher_encrypt(value):Bytes-instance-method">#cipher_encrypt</a></code>, just a shortcut.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#encrypt_and_sign(value:Bytes):String-instance-method" class="signature"><strong>#encrypt_and_sign</strong>(value : Bytes) : String</a>
+        
+          <div class="summary"><p>Encrypt and sign a <em>value</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#encrypt_and_sign(value:String):String-instance-method" class="signature"><strong>#encrypt_and_sign</strong>(value : String) : String</a>
+        
+          <div class="summary"><p>Encrypt and sign a <em>value</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#signer:Signer-instance-method" class="signature"><strong>#signer</strong> : Signer</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#verify_and_decrypt(value:String,sign_error=Signer::INVALID_SIGN):Bytes-instance-method" class="signature"><strong>#verify_and_decrypt</strong>(value : String, sign_error = <span class="t">Signer</span><span class="t">::</span><span class="t">INVALID_SIGN</span>) : Bytes</a>
+        
+          <div class="summary"><p>Verify and decrypt a signed <em>value</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#verify_and_decrypt(value:Bytes,sign_error=Signer::INVALID_SIGN):Bytes-instance-method" class="signature"><strong>#verify_and_decrypt</strong>(value : Bytes, sign_error = <span class="t">Signer</span><span class="t">::</span><span class="t">INVALID_SIGN</span>) : Bytes</a>
+        
+          <div class="summary"><p>Verify and decrypt a signed <em>value</em>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(secret:String,digest=:sha1,cipher_algo=&quot;aes-256-cbc&quot;)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(secret : String, digest = <span class="n">:sha1</span>, cipher_algo = <span class="s">&quot;aes-256-cbc&quot;</span>)
+
+        <a class="method-permalink" href="#new(secret:String,digest=:sha1,cipher_algo=&quot;aes-256-cbc&quot;)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new <code><a href="../Crypt/Crypter.html">Crypter</a></code> instance.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="cipher_decrypt(value:Bytes):Bytes-instance-method">
+      <div class="signature">
+        
+        def <strong>cipher_decrypt</strong>(value : Bytes) : Bytes
+
+        <a class="method-permalink" href="#cipher_decrypt(value:Bytes):Bytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Decrypt <em>value</em> encrypted by <code><a href="../Crypt/Crypter.html#cipher_encrypt(value):Bytes-instance-method">#cipher_encrypt</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cipher_encrypt(value):Bytes-instance-method">
+      <div class="signature">
+        
+        def <strong>cipher_encrypt</strong>(value) : Bytes
+
+        <a class="method-permalink" href="#cipher_encrypt(value):Bytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Encrypt the <em>value</em> which should be decrypted by <code><a href="../Crypt/Crypter.html#cipher_decrypt(value:Bytes):Bytes-instance-method">#cipher_decrypt</a></code>.
+See also <code><a href="../Crypt/Crypter.html#encrypt(value:Bytes,kind:Symbol):String-instance-method">#encrypt</a></code>, <code><a href="../Crypt/Crypter.html#encrypt_and_sign(value:Bytes):String-instance-method">#encrypt_and_sign</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="decrypt(value:Bytes,kind:Symbol,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">
+      <div class="signature">
+        
+        def <strong>decrypt</strong>(value : Bytes, kind : Symbol, sign_error = <span class="t">Signer</span><span class="t">::</span><span class="t">INVALID_SIGN</span>) : Bytes
+
+        <a class="method-permalink" href="#decrypt(value:Bytes,kind:Symbol,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Equivalent to <code><a href="../Crypt/Crypter.html#verify_and_decrypt(value:String,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">#verify_and_decrypt</a></code>, just a shortcut.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="decrypt(value:String,kind:Symbol,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">
+      <div class="signature">
+        
+        def <strong>decrypt</strong>(value : String, kind : Symbol, sign_error = <span class="t">Signer</span><span class="t">::</span><span class="t">INVALID_SIGN</span>) : Bytes
+
+        <a class="method-permalink" href="#decrypt(value:String,kind:Symbol,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Equivalent to <code><a href="../Crypt/Crypter.html#verify_and_decrypt(value:String,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">#verify_and_decrypt</a></code>, just a shortcut.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="decrypt(value:Bytes):Bytes-instance-method">
+      <div class="signature">
+        
+        def <strong>decrypt</strong>(value : Bytes) : Bytes
+
+        <a class="method-permalink" href="#decrypt(value:Bytes):Bytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Equivalent to <code><a href="../Crypt/Crypter.html#cipher_decrypt(value:Bytes):Bytes-instance-method">#cipher_decrypt</a></code>, just a shortcut.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="encrypt(value:Bytes,kind:Symbol):String-instance-method">
+      <div class="signature">
+        
+        def <strong>encrypt</strong>(value : Bytes, kind : Symbol) : String
+
+        <a class="method-permalink" href="#encrypt(value:Bytes,kind:Symbol):String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Equivalent to <code><a href="../Crypt/Crypter.html#encrypt_and_sign(value:Bytes):String-instance-method">#encrypt_and_sign</a></code>, just a shortcut.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="encrypt(value:String,kind:Symbol):String-instance-method">
+      <div class="signature">
+        
+        def <strong>encrypt</strong>(value : String, kind : Symbol) : String
+
+        <a class="method-permalink" href="#encrypt(value:String,kind:Symbol):String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Equivalent to <code><a href="../Crypt/Crypter.html#encrypt_and_sign(value:Bytes):String-instance-method">#encrypt_and_sign</a></code>, just a shortcut.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="encrypt(value):Bytes-instance-method">
+      <div class="signature">
+        
+        def <strong>encrypt</strong>(value) : Bytes
+
+        <a class="method-permalink" href="#encrypt(value):Bytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Equivalent to <code><a href="../Crypt/Crypter.html#cipher_encrypt(value):Bytes-instance-method">#cipher_encrypt</a></code>, just a shortcut.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="encrypt_and_sign(value:Bytes):String-instance-method">
+      <div class="signature">
+        
+        def <strong>encrypt_and_sign</strong>(value : Bytes) : String
+
+        <a class="method-permalink" href="#encrypt_and_sign(value:Bytes):String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Encrypt and sign a <em>value</em>. We need to sign the <em>value</em> in order to avoid
+padding attacks. Reference: http://www.limited-entropy.com/padding-oracle-attacks.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="encrypt_and_sign(value:String):String-instance-method">
+      <div class="signature">
+        
+        def <strong>encrypt_and_sign</strong>(value : String) : String
+
+        <a class="method-permalink" href="#encrypt_and_sign(value:String):String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Encrypt and sign a <em>value</em>. We need to sign the <em>value</em> in order to avoid
+padding attacks. Reference: http://www.limited-entropy.com/padding-oracle-attacks.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="signer:Signer-instance-method">
+      <div class="signature">
+        
+        def <strong>signer</strong> : <a href="../Crypt/Signer.html">Signer</a>
+
+        <a class="method-permalink" href="#signer:Signer-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="verify_and_decrypt(value:String,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">
+      <div class="signature">
+        
+        def <strong>verify_and_decrypt</strong>(value : String, sign_error = <span class="t">Signer</span><span class="t">::</span><span class="t">INVALID_SIGN</span>) : Bytes
+
+        <a class="method-permalink" href="#verify_and_decrypt(value:String,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Verify and decrypt a signed <em>value</em>. We need to verify the <em>value</em> in order to
+avoid padding attacks. Reference: http://www.limited-entropy.com/padding-oracle-attacks.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="verify_and_decrypt(value:Bytes,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">
+      <div class="signature">
+        
+        def <strong>verify_and_decrypt</strong>(value : Bytes, sign_error = <span class="t">Signer</span><span class="t">::</span><span class="t">INVALID_SIGN</span>) : Bytes
+
+        <a class="method-permalink" href="#verify_and_decrypt(value:Bytes,sign_error=Signer::INVALID_SIGN):Bytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Verify and decrypt a signed <em>value</em>. We need to verify the <em>value</em> in order to
+avoid padding attacks. Reference: http://www.limited-entropy.com/padding-oracle-attacks.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

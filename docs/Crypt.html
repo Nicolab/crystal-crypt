@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="master">
+<meta name="crystal_docs.project_name" content="crypt">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="crypt">
+  <title>Crypt - crypt master</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          crypt
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="crypt/Crypt" data-name="crypt">
+      <a href="Crypt.html">Crypt</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crypt/Crypt/BytesizeError" data-name="crypt::bytesizeerror">
+      <a href="Crypt/BytesizeError.html">BytesizeError</a>
+      
+    </li>
+  
+  <li class=" " data-id="crypt/Crypt/Crypter" data-name="crypt::crypter">
+      <a href="Crypt/Crypter.html">Crypter</a>
+      
+    </li>
+  
+  <li class=" " data-id="crypt/Crypt/CryptError" data-name="crypt::crypterror">
+      <a href="Crypt/CryptError.html">CryptError</a>
+      
+    </li>
+  
+  <li class=" " data-id="crypt/Crypt/SecretKeyError" data-name="crypt::secretkeyerror">
+      <a href="Crypt/SecretKeyError.html">SecretKeyError</a>
+      
+    </li>
+  
+  <li class=" " data-id="crypt/Crypt/SignatureError" data-name="crypt::signatureerror">
+      <a href="Crypt/SignatureError.html">SignatureError</a>
+      
+    </li>
+  
+  <li class=" " data-id="crypt/Crypt/Signer" data-name="crypt::signer">
+      <a href="Crypt/Signer.html">Signer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Crypt
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Crypto utilities.</p>
+
+<p>See also in complement:</p>
+
+<ul><li>https://crystal-lang.org/api/OpenSSL/Cipher.html</li><li>https://crystal-lang.org/api/Crypto/Bcrypt/Password.html</li><li>https://crystal-lang.org/api/Random/Secure.html</li><li>https://crystal-lang.org/api/Random.html</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">&quot;0.1.0&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#check_min_bytesize(min_bytesize:Int,value,name:String=&quot;Value&quot;)-class-method" class="signature"><strong>.check_min_bytesize</strong>(min_bytesize : Int, value, name : String = <span class="s">&quot;Value&quot;</span>)</a>
+        
+          <div class="summary"><p>Check the desired minimal <em>value</em> bytesize.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create_bcrypt_password(secret:String,cost:Int32=Crypto::Bcrypt::DEFAULT_COST):Crypto::Bcrypt::Password-class-method" class="signature"><strong>.create_bcrypt_password</strong>(secret : String, cost : Int32 = <span class="t">Crypto</span><span class="t">::</span><span class="t">Bcrypt</span><span class="t">::</span><span class="t">DEFAULT_COST</span>) : Crypto::Bcrypt::Password</a>
+        
+          <div class="summary"><p>Create a <code>Bcrypt</code> password (<code>Crypto::Bcrypt::Password</code>).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_deriv(password,salt,iter=65536,algo:OpenSSL::Algorithm=OpenSSL::Algorithm::SHA1,key_size=64)-class-method" class="signature"><strong>.key_deriv</strong>(password, salt, iter = <span class="n">65536</span>, algo : OpenSSL::Algorithm = <span class="t">OpenSSL</span><span class="t">::</span><span class="t">Algorithm</span><span class="t">::</span><span class="t">SHA1</span>, key_size = <span class="n">64</span>)</a>
+        
+          <div class="summary"><p>Key derivation PKCS5/PBKDF2 (Password-Based Key Derivation Function 2).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_deriv(password,salt,iter=65536,algo:Symbol=:sha1,key_size=64)-class-method" class="signature"><strong>.key_deriv</strong>(password, salt, iter = <span class="n">65536</span>, algo : Symbol = <span class="n">:sha1</span>, key_size = <span class="n">64</span>)</a>
+        
+          <div class="summary"><p>See <code><a href="Crypt.html#key_deriv(password,salt,iter=65536,algo:OpenSSL::Algorithm=OpenSSL::Algorithm::SHA1,key_size=64)-class-method">.key_deriv</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#load_bcrypt_password(hash:String):Crypto::Bcrypt::Password-class-method" class="signature"><strong>.load_bcrypt_password</strong>(hash : String) : Crypto::Bcrypt::Password</a>
+        
+          <div class="summary"><p>Loads a <code>Bcrypt</code> password hash.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#random_bytes(n:Int=16):Bytes-class-method" class="signature"><strong>.random_bytes</strong>(n : Int = <span class="n">16</span>) : Bytes</a>
+        
+          <div class="summary"><p>Generates a slice filled with <em>n</em> random bytes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#random_bytes_string(n:Int=16):String-class-method" class="signature"><strong>.random_bytes_string</strong>(n : Int = <span class="n">16</span>) : String</a>
+        
+          <div class="summary"><p>Generates a string whose size is <em>n</em> bytes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#random_string(n:Int=16):String-class-method" class="signature"><strong>.random_string</strong>(n : Int = <span class="n">16</span>) : String</a>
+        
+          <div class="summary"><p>Generates a string filled with <em>n</em> random characters.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="check_min_bytesize(min_bytesize:Int,value,name:String=&quot;Value&quot;)-class-method">
+      <div class="signature">
+        
+        def self.<strong>check_min_bytesize</strong>(min_bytesize : Int, value, name : String = <span class="s">&quot;Value&quot;</span>)
+
+        <a class="method-permalink" href="#check_min_bytesize(min_bytesize:Int,value,name:String=&quot;Value&quot;)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check the desired minimal <em>value</em> bytesize.
+Raises a <code><a href="Crypt/BytesizeError.html">BytesizeError</a></code> if the <em>value</em> bytesize is lesser than <em>min_bytesize</em>.</p>
+
+<p><em>value</em> must implements <code>value.bytesize</code> (<code>String</code> and <code>Slice</code> / <code>Bytes</code> implements bytesize).</p>
+
+<blockquote><em>name</em> argument is used to contextualize error message.</blockquote>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create_bcrypt_password(secret:String,cost:Int32=Crypto::Bcrypt::DEFAULT_COST):Crypto::Bcrypt::Password-class-method">
+      <div class="signature">
+        
+        def self.<strong>create_bcrypt_password</strong>(secret : String, cost : Int32 = <span class="t">Crypto</span><span class="t">::</span><span class="t">Bcrypt</span><span class="t">::</span><span class="t">DEFAULT_COST</span>) : Crypto::Bcrypt::Password
+
+        <a class="method-permalink" href="#create_bcrypt_password(secret:String,cost:Int32=Crypto::Bcrypt::DEFAULT_COST):Crypto::Bcrypt::Password-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create a <code>Bcrypt</code> password (<code>Crypto::Bcrypt::Password</code>).
+https://crystal-lang.org/api/Crypto/Bcrypt/Password.html</p>
+
+<p>Generate, read and verify <code>Crypto::Bcrypt</code> hashes:</p>
+
+<pre><code><span class="k">require</span> <span class="s">&quot;crypt&quot;</span>
+<span class="k">require</span> <span class="s">&quot;crypt/bcrypt&quot;</span>
+
+password <span class="o">=</span> <span class="t">Crypt</span>.create_bcrypt_password(<span class="s">&quot;super secret&quot;</span>, cost: <span class="n">10</span>)
+<span class="c"># =&gt; $2a$10$rI4xRiuAN2fyiKwynO6PPuorfuoM4L2PVv6hlnVJEmNLjqcibAfHq</span>
+
+password.verify(<span class="s">&quot;wrong secret&quot;</span>) <span class="c"># =&gt; false</span>
+password.verify(<span class="s">&quot;super secret&quot;</span>) <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_deriv(password,salt,iter=65536,algo:OpenSSL::Algorithm=OpenSSL::Algorithm::SHA1,key_size=64)-class-method">
+      <div class="signature">
+        
+        def self.<strong>key_deriv</strong>(password, salt, iter = <span class="n">65536</span>, algo : OpenSSL::Algorithm = <span class="t">OpenSSL</span><span class="t">::</span><span class="t">Algorithm</span><span class="t">::</span><span class="t">SHA1</span>, key_size = <span class="n">64</span>)
+
+        <a class="method-permalink" href="#key_deriv(password,salt,iter=65536,algo:OpenSSL::Algorithm=OpenSSL::Algorithm::SHA1,key_size=64)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Key derivation PKCS5/PBKDF2 (Password-Based Key Derivation Function 2).</p>
+
+<ul><li>https://crystal-lang.org/api/OpenSSL/HMAC.html</li><li>https://en.wikipedia.org/wiki/PBKDF2</li></ul>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_deriv(password,salt,iter=65536,algo:Symbol=:sha1,key_size=64)-class-method">
+      <div class="signature">
+        
+        def self.<strong>key_deriv</strong>(password, salt, iter = <span class="n">65536</span>, algo : Symbol = <span class="n">:sha1</span>, key_size = <span class="n">64</span>)
+
+        <a class="method-permalink" href="#key_deriv(password,salt,iter=65536,algo:Symbol=:sha1,key_size=64)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="Crypt.html#key_deriv(password,salt,iter=65536,algo:OpenSSL::Algorithm=OpenSSL::Algorithm::SHA1,key_size=64)-class-method">.key_deriv</a></code>.</p>
+
+<p>Argument <em>algo</em> takes a <code>Symbol</code> instead of <code>OpenSSL::Algorithm</code> (<code>Enum</code>).</p>
+
+<blockquote>:md4, :md5, :ripemd160, :sha1, :sha224, :sha256, :sha384, :sha512</blockquote>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="load_bcrypt_password(hash:String):Crypto::Bcrypt::Password-class-method">
+      <div class="signature">
+        
+        def self.<strong>load_bcrypt_password</strong>(hash : String) : Crypto::Bcrypt::Password
+
+        <a class="method-permalink" href="#load_bcrypt_password(hash:String):Crypto::Bcrypt::Password-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Loads a <code>Bcrypt</code> password hash.</p>
+
+<pre><code><span class="k">require</span> <span class="s">&quot;crypt&quot;</span>
+<span class="k">require</span> <span class="s">&quot;crypt/bcrypt&quot;</span>
+
+password <span class="o">=</span> <span class="t">Crypt</span>.load_bcrypt_password(
+  <span class="s">&quot;$2a$10$X6rw/jDiLBuzHV./JjBNXe8/Po4wTL0fhdDNdAdjcKN/Fup8tGCya&quot;</span>
+)
+password.version <span class="c"># =&gt; &quot;2a&quot;</span>
+password.salt    <span class="c"># =&gt; &quot;X6rw/jDiLBuzHV./JjBNXe&quot;</span>
+password.digest  <span class="c"># =&gt; &quot;8/Po4wTL0fhdDNdAdjcKN/Fup8tGCya&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="random_bytes(n:Int=16):Bytes-class-method">
+      <div class="signature">
+        
+        def self.<strong>random_bytes</strong>(n : Int = <span class="n">16</span>) : Bytes
+
+        <a class="method-permalink" href="#random_bytes(n:Int=16):Bytes-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generates a slice filled with <em>n</em> random bytes.</p>
+
+<ul><li>https://crystal-lang.org/api/Random.html#random_bytes(n:Int=16):Bytes-instance-method</li></ul>
+
+<p>See also:</p>
+
+<ul><li><code><a href="Crypt.html#random_string(n:Int=16):String-class-method">.random_string</a></code></li><li><code><a href="Crypt.html#random_bytes_string(n:Int=16):String-class-method">.random_bytes_string</a></code></li></ul>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="random_bytes_string(n:Int=16):String-class-method">
+      <div class="signature">
+        
+        def self.<strong>random_bytes_string</strong>(n : Int = <span class="n">16</span>) : String
+
+        <a class="method-permalink" href="#random_bytes_string(n:Int=16):String-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generates a string whose size is <em>n</em> bytes.
+Be careful the string generated contains more characters than <em>n</em>, but size is <em>n</em> bytes.</p>
+
+<pre><code>str <span class="o">=</span> <span class="t">Crypt</span>.random_bytes_string(<span class="n">4</span>) <span class="c"># =&gt; &quot;\u001DF\xD4\u000E&quot;</span>
+str.bytesize                       <span class="c"># =&gt; 4</span>
+str.to_slice                       <span class="c"># =&gt; Bytes[195, 219, 187, 142]</span></code></pre>
+
+<p>See also:</p>
+
+<ul><li><code><a href="Crypt.html#random_bytes(n:Int=16):Bytes-class-method">.random_bytes</a></code></li><li><code><a href="Crypt.html#random_string(n:Int=16):String-class-method">.random_string</a></code></li></ul>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="random_string(n:Int=16):String-class-method">
+      <div class="signature">
+        
+        def self.<strong>random_string</strong>(n : Int = <span class="n">16</span>) : String
+
+        <a class="method-permalink" href="#random_string(n:Int=16):String-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generates a string filled with <em>n</em> random characters.
+The string generated is URL and filename safe alphabet (RFC 4648).
+The alphabet uses <code>'-'</code> instead of <code>'+'</code> and <code>'_'</code> instead of <code>'/'</code>.</p>
+
+<h1><a id="see-also" class="anchor" href="#see-also">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>See also:</h1>
+
+<ul><li><code><a href="Crypt.html#random_bytes(n:Int=16):Bytes-class-method">.random_bytes</a></code></li><li><code><a href="Crypt.html#random_bytes_string(n:Int=16):String-class-method">.random_bytes_string</a></code></li></ul>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
