@@ -119,9 +119,9 @@ module Crypt
           #{error.message}
 
         You can generate a new key using `Crypt.random_string` method
-        or 'craft gen secret-key' in your terminal:
+        or 'craft gen key' in your terminal:
 
-          ▸ craft gen secret-key
+          ▸ craft gen key
 
 
 
