@@ -14,7 +14,7 @@
 # * https://crystal-lang.org/api/Random/Secure.html
 # * https://crystal-lang.org/api/Random.html
 module Crypt
-  VERSION = "0.1.0"
+  VERSION = "0.1.2"
 
   # Generic Crypt's Error.
   # Inherited by all Crypt's exception classes.
