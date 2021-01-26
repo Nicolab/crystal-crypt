@@ -9,3 +9,6 @@ require "spec"
 require "../src/crypt"
 
 SIGN_SEP = Crypt::Signer::SIGN_SEP
+
+# Simulates a heavier load by adding iterations for some tests
+LOOP_ITER = 10

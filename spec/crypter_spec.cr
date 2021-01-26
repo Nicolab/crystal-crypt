@@ -10,20 +10,24 @@ require "../src/crypter"
 require "../src/random"
 
 describe "Crypt::Crypter" do
+  Spec.after_each { GC.collect }
+
   describe "cipher/decipher with signed data" do
     context "String" do
       it "should encrypt and decrypt" do
-        data = "abcd"
-        secret = Crypt.random_string(32)
-        crypter = Crypt::Crypter.new(secret)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}"
+          secret = "#{i}#{Crypt.random_string(31)}"
+          crypter = Crypt::Crypter.new(secret)
 
-        signed_data = crypter.encrypt(data, :sign)
-        signed_data.should_not eq data
-        signed_data.should_not eq data.to_slice
+          signed_data = crypter.encrypt(data, :sign)
+          signed_data.should_not eq data
+          signed_data.should_not eq data.to_slice
 
-        decrypted_bytes = crypter.decrypt(signed_data, :sign)
-        decrypted_bytes.should eq data.to_slice
-        String.new(decrypted_bytes).should eq data
+          decrypted_bytes = crypter.decrypt(signed_data, :sign)
+          decrypted_bytes.should eq data.to_slice
+          String.new(decrypted_bytes).should eq data
+        end
       end
 
       it "should encrypt and decrypt big data" do
@@ -42,24 +46,28 @@ describe "Crypt::Crypter" do
       end
 
       it "should decrypt data encrypted from another instance" do
-        data = "abcd"
-        secret = Crypt.random_string(32)
-        crypter = Crypt::Crypter.new(secret)
-        signed_data = crypter.encrypt(data, :sign)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}"
+          secret = "#{i}#{Crypt.random_string(31)}"
+          crypter = Crypt::Crypter.new(secret)
+          signed_data = crypter.encrypt(data, :sign)
 
-        crypter2 = Crypt::Crypter.new(secret)
-        crypter2.decrypt(signed_data, :sign).should eq data.to_slice
+          crypter2 = Crypt::Crypter.new(secret)
+          crypter2.decrypt(signed_data, :sign).should eq data.to_slice
+        end
       end
 
       it "should be not valid when the secret is different." do
-        data = "abcd"
-        crypter = Crypt::Crypter.new(Crypt.random_string(32))
-        signed_data = crypter.encrypt(data, :sign)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}"
+          crypter = Crypt::Crypter.new("#{i}#{Crypt.random_string(31)}")
+          signed_data = crypter.encrypt(data, :sign)
 
-        crypter2 = Crypt::Crypter.new(Crypt.random_string(32))
+          crypter2 = Crypt::Crypter.new("#{i}#{Crypt.random_string(31)}")
 
-        expect_raises(Crypt::SignatureError, Crypt::Signer::INVALID_SIGN) do
-          crypter2.decrypt(signed_data, :sign)
+          expect_raises(Crypt::SignatureError, Crypt::Signer::INVALID_SIGN) do
+            crypter2.decrypt(signed_data, :sign)
+          end
         end
       end
 
@@ -107,17 +115,19 @@ describe "Crypt::Crypter" do
 
     context "Bytes" do
       it "should encrypt and decrypt" do
-        data = "abcd".to_slice
-        secret = Crypt.random_string(32)
-        crypter = Crypt::Crypter.new(secret)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}".to_slice
+          secret = "#{i}#{Crypt.random_string(31)}"
+          crypter = Crypt::Crypter.new(secret)
 
-        signed_data = crypter.encrypt(data, :sign)
-        signed_data.should_not eq data
-        signed_data.should_not eq String.new(data)
+          signed_data = crypter.encrypt(data, :sign)
+          signed_data.should_not eq data
+          signed_data.should_not eq String.new(data)
 
-        decrypted_bytes = crypter.decrypt(signed_data, :sign)
-        decrypted_bytes.should eq data
-        String.new(decrypted_bytes).should eq String.new(data)
+          decrypted_bytes = crypter.decrypt(signed_data, :sign)
+          decrypted_bytes.should eq data
+          String.new(decrypted_bytes).should eq String.new(data)
+        end
       end
 
       it "should encrypt and decrypt big data" do
@@ -136,24 +146,28 @@ describe "Crypt::Crypter" do
       end
 
       it "should decrypt data encrypted from another instance" do
-        data = "abcd".to_slice
-        secret = Crypt.random_string(32)
-        crypter = Crypt::Crypter.new(secret)
-        signed_data = crypter.encrypt(data, :sign)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}".to_slice
+          secret = "#{i}#{Crypt.random_string(31)}"
+          crypter = Crypt::Crypter.new(secret)
+          signed_data = crypter.encrypt(data, :sign)
 
-        crypter2 = Crypt::Crypter.new(secret)
-        crypter2.decrypt(signed_data, :sign).should eq data
+          crypter2 = Crypt::Crypter.new(secret)
+          crypter2.decrypt(signed_data, :sign).should eq data
+        end
       end
 
       it "should be not valid when the secret is different." do
-        data = "abcd".to_slice
-        crypter = Crypt::Crypter.new(Crypt.random_string(32))
-        signed_data = crypter.encrypt(data, :sign)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}".to_slice
+          crypter = Crypt::Crypter.new("#{i}#{Crypt.random_string(31)}")
+          signed_data = crypter.encrypt(data, :sign)
 
-        crypter2 = Crypt::Crypter.new(Crypt.random_string(32))
+          crypter2 = Crypt::Crypter.new("#{i}#{Crypt.random_string(31)}")
 
-        expect_raises(Crypt::SignatureError, Crypt::Signer::INVALID_SIGN) do
-          crypter2.decrypt(signed_data, :sign)
+          expect_raises(Crypt::SignatureError, Crypt::Signer::INVALID_SIGN) do
+            crypter2.decrypt(signed_data, :sign)
+          end
         end
       end
 
@@ -204,17 +218,19 @@ describe "Crypt::Crypter" do
   describe "cipher/decipher" do
     context "String" do
       it "should encrypt and decrypt" do
-        data = "abcd"
-        secret = Crypt.random_string(32)
-        crypter = Crypt::Crypter.new(secret)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}"
+          secret = "#{i}#{Crypt.random_string(31)}"
+          crypter = Crypt::Crypter.new(secret)
 
-        encrypted = crypter.encrypt(data)
-        encrypted.should_not eq data
-        encrypted.should_not eq data.to_slice
+          encrypted = crypter.encrypt(data)
+          encrypted.should_not eq data
+          encrypted.should_not eq data.to_slice
 
-        decrypted_bytes = crypter.decrypt(encrypted)
-        decrypted_bytes.should eq data.to_slice
-        String.new(decrypted_bytes).should eq data
+          decrypted_bytes = crypter.decrypt(encrypted)
+          decrypted_bytes.should eq data.to_slice
+          String.new(decrypted_bytes).should eq data
+        end
       end
 
       it "should encrypt and decrypt big data" do
@@ -240,24 +256,28 @@ describe "Crypt::Crypter" do
       end
 
       it "should decrypt data encrypted from another instance" do
-        data = "abcd"
-        secret = Crypt.random_string(32)
-        crypter = Crypt::Crypter.new(secret)
-        encrypted = crypter.encrypt(data)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}"
+          secret = "#{i}#{Crypt.random_string(31)}"
+          crypter = Crypt::Crypter.new(secret)
+          encrypted = crypter.encrypt(data)
 
-        crypter2 = Crypt::Crypter.new(secret)
-        crypter2.decrypt(encrypted).should eq data.to_slice
+          crypter2 = Crypt::Crypter.new(secret)
+          crypter2.decrypt(encrypted).should eq data.to_slice
+        end
       end
 
       it "should be not valid when the secret is different." do
-        data = "abcd"
-        crypter = Crypt::Crypter.new(Crypt.random_string(32))
-        encrypted = crypter.encrypt(data)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}"
+          crypter = Crypt::Crypter.new("#{i}#{Crypt.random_string(31)}")
+          encrypted = crypter.encrypt(data)
 
-        crypter2 = Crypt::Crypter.new(Crypt.random_string(32))
+          crypter2 = Crypt::Crypter.new("#{i}#{Crypt.random_string(31)}")
 
-        expect_raises(OpenSSL::Cipher::Error) do
-          crypter2.decrypt(encrypted)
+          expect_raises(OpenSSL::Cipher::Error) do
+            crypter2.decrypt(encrypted)
+          end
         end
       end
 
@@ -270,17 +290,19 @@ describe "Crypt::Crypter" do
 
     context "Bytes" do
       it "should encrypt and decrypt" do
-        data = "abcd".to_slice
-        secret = Crypt.random_string(32)
-        crypter = Crypt::Crypter.new(secret)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}".to_slice
+          secret = "#{i}#{Crypt.random_string(31)}"
+          crypter = Crypt::Crypter.new(secret)
 
-        encrypted = crypter.encrypt(data)
-        encrypted.should_not eq data
-        encrypted.should_not eq String.new(data)
+          encrypted = crypter.encrypt(data)
+          encrypted.should_not eq data
+          encrypted.should_not eq String.new(data)
 
-        decrypted_bytes = crypter.decrypt(encrypted)
-        decrypted_bytes.should eq data
-        String.new(decrypted_bytes).should eq String.new(data)
+          decrypted_bytes = crypter.decrypt(encrypted)
+          decrypted_bytes.should eq data
+          String.new(decrypted_bytes).should eq String.new(data)
+        end
       end
 
       it "should encrypt and decrypt big data" do
@@ -306,24 +328,28 @@ describe "Crypt::Crypter" do
       end
 
       it "should decrypt data encrypted from another instance" do
-        data = "abcd".to_slice
-        secret = Crypt.random_string(32)
-        crypter = Crypt::Crypter.new(secret)
-        encrypted = crypter.encrypt(data)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}".to_slice
+          secret = "#{i}#{Crypt.random_string(31)}"
+          crypter = Crypt::Crypter.new(secret)
+          encrypted = crypter.encrypt(data)
 
-        crypter2 = Crypt::Crypter.new(secret)
-        crypter2.decrypt(encrypted).should eq data
+          crypter2 = Crypt::Crypter.new(secret)
+          crypter2.decrypt(encrypted).should eq data
+        end
       end
 
       it "should be not valid when the secret is different." do
-        data = "abcd".to_slice
-        crypter = Crypt::Crypter.new(Crypt.random_string(32))
-        encrypted = crypter.encrypt(data)
+        LOOP_ITER.times do |i|
+          data = "abcd #{i}".to_slice
+          crypter = Crypt::Crypter.new("#{i}#{Crypt.random_string(31)}")
+          encrypted = crypter.encrypt(data)
 
-        crypter2 = Crypt::Crypter.new(Crypt.random_string(32))
+          crypter2 = Crypt::Crypter.new("#{i}#{Crypt.random_string(31)}")
 
-        expect_raises(OpenSSL::Cipher::Error) do
-          crypter2.decrypt(encrypted)
+          expect_raises(OpenSSL::Cipher::Error) do
+            crypter2.decrypt(encrypted)
+          end
         end
       end
 

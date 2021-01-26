@@ -10,44 +10,50 @@ require "../src/signer"
 
 describe "Signer" do
   it "#valid?" do
-    data = "abcd"
-    secret = "super secret"
-    signer = Crypt::Signer.new(secret, digest: :sha1)
+    LOOP_ITER.times do |i|
+      data = "abcd #{i}"
+      secret = "super secret"
+      signer = Crypt::Signer.new(secret, digest: :sha1)
 
-    signed_data = signer.sign(data)
+      signed_data = signer.sign(data)
 
-    _data, _digest = Crypt::Signer.parse_data_and_digest(signed_data)
-    _data.should_not eq data
-    _digest.should_not eq secret
-    _digest.should_not eq :sha1
+      _data, _digest = Crypt::Signer.parse_data_and_digest(signed_data)
+      _data.should_not eq data
+      _digest.should_not eq secret
+      _digest.should_not eq :sha1
 
-    signer.valid?(data, _digest).should be_false
-    signer.valid?(_data, secret).should be_false
-    signer.valid?(_data, _digest).should be_true
+      signer.valid?(data, _digest).should be_false
+      signer.valid?(_data, secret).should be_false
+      signer.valid?(_data, _digest).should be_true
+    end
   end
 
   describe "#verify" do
     it "should generate, read and verify signed data" do
-      data = "abcd"
-      secret = "super secret"
-      signer = Crypt::Signer.new(secret)
+      LOOP_ITER.times do |i|
+        data = "abcd #{i}"
+        secret = "super secret"
+        signer = Crypt::Signer.new(secret)
 
-      signed_data = signer.sign(data)
-      signed_data.should be_a(String)
-      signed_data.should_not eq data
-      signed_data.should_not eq secret
+        signed_data = signer.sign(data)
+        signed_data.should be_a(String)
+        signed_data.should_not eq data
+        signed_data.should_not eq secret
 
-      signer.verify(signed_data).should eq data
+        signer.verify(signed_data).should eq data
+      end
     end
 
     it "should verify signed data from another instance" do
-      data = "abcd"
-      secret = "super secret"
-      signer = Crypt::Signer.new(secret)
-      signed_data = signer.sign(data)
+      LOOP_ITER.times do |i|
+        data = "abcd #{i}"
+        secret = "super secret"
+        signer = Crypt::Signer.new(secret)
+        signed_data = signer.sign(data)
 
-      signer2 = Crypt::Signer.new(secret)
-      signer2.verify(signed_data).should eq data
+        signer2 = Crypt::Signer.new(secret)
+        signer2.verify(signed_data).should eq data
+      end
     end
 
     it "should be not valid when the secret is different." do
@@ -103,26 +109,30 @@ describe "Signer" do
 
   describe "#verify_raw" do
     it "should generate, read and verify signed data" do
-      data = "abcd"
-      secret = "super secret"
-      signer = Crypt::Signer.new(secret)
+      LOOP_ITER.times do |i|
+        data = "abcd #{i}"
+        secret = "super secret"
+        signer = Crypt::Signer.new(secret)
 
-      signed_data = signer.sign(data)
-      signed_data.should be_a(String)
-      signed_data.should_not eq data
-      signed_data.should_not eq secret
+        signed_data = signer.sign(data)
+        signed_data.should be_a(String)
+        signed_data.should_not eq data
+        signed_data.should_not eq secret
 
-      signer.verify_raw(signed_data).should eq data.to_slice
+        signer.verify_raw(signed_data).should eq data.to_slice
+      end
     end
 
     it "should verify signed data from another instance" do
-      data = "abcd"
-      secret = "super secret"
-      signer = Crypt::Signer.new(secret)
-      signed_data = signer.sign(data)
+      LOOP_ITER.times do |i|
+        data = "abcd #{i}"
+        secret = "super secret"
+        signer = Crypt::Signer.new(secret)
+        signed_data = signer.sign(data)
 
-      signer2 = Crypt::Signer.new(secret)
-      signer2.verify_raw(signed_data).should eq data.to_slice
+        signer2 = Crypt::Signer.new(secret)
+        signer2.verify_raw(signed_data).should eq data.to_slice
+      end
     end
 
     it "should be not valid when the secret is different." do
@@ -184,26 +194,30 @@ describe "Signer" do
 
   describe "#verify_and_decode" do
     it "should generate, read and verify signed data" do
-      data = "abcd"
-      secret = "super secret"
-      signer = Crypt::Signer.new(secret)
+      LOOP_ITER.times do |i|
+        data = "abcd #{i}"
+        secret = "super secret"
+        signer = Crypt::Signer.new(secret)
 
-      signed_data = signer.sign(data)
-      signed_data.should be_a(String)
-      signed_data.should_not eq data
-      signed_data.should_not eq secret
+        signed_data = signer.sign(data)
+        signed_data.should be_a(String)
+        signed_data.should_not eq data
+        signed_data.should_not eq secret
 
-      signer.verify_and_decode(signed_data).should eq data
+        signer.verify_and_decode(signed_data).should eq data
+      end
     end
 
     it "should verify signed data from another instance" do
-      data = "abcd"
-      secret = "super secret"
-      signer = Crypt::Signer.new(secret)
-      signed_data = signer.sign(data)
+      LOOP_ITER.times do |i|
+        data = "abcd #{i}"
+        secret = "super secret"
+        signer = Crypt::Signer.new(secret)
+        signed_data = signer.sign(data)
 
-      signer2 = Crypt::Signer.new(secret)
-      signer2.verify_and_decode(signed_data).should eq data
+        signer2 = Crypt::Signer.new(secret)
+        signer2.verify_and_decode(signed_data).should eq data
+      end
     end
 
     it "should be not valid when the secret is different." do
