@@ -11,7 +11,13 @@ require "crypto/subtle"
 module Crypt
   # Sign and verify given data.
   class Signer
-    SIGN_SEP     = "--"
+    macro finished
+      {% consts = @type.constants.map(&.symbolize) %}
+      {% unless consts.includes?(:SIGN_SEP) %}
+        SIGN_SEP     = "__--"
+      {% end %}
+    end
+
     INVALID_SIGN = "Not valid"
 
     # Create a `Signer` instance.
