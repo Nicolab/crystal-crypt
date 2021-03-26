@@ -3,21 +3,16 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="generator" content="Crystal Docs 0.36.1">
 <meta name="crystal_docs.project_version" content="master-dev">
 <meta name="crystal_docs.project_name" content="crypt">
+
 
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
 
-<svg class="hidden">
-  <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-  </symbol>
-</svg>
-
-  <meta id="repository-name" content="crypt">
+  <meta name="repository-name" content="crypt">
   <title>crypt master-dev</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
@@ -25,6 +20,11 @@
 </head>
 <body>
 
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div class="search-results" class="hidden">
+  <div class="search-results hidden">
     <ul class="search-list"></ul>
   </div>
 
@@ -104,9 +104,9 @@
   </svg>
 </a>Crypt</h1>
 
-<p><a href="https://github.com/Nicolab/crystal-crypt/actions" target="_blank"><img src="https://github.com/Nicolab/crystal-crypt/workflows/CI/badge.svg?branch=master" alt="CI Status"/></a> <a href="https://github.com/Nicolab/crystal-crypt/releases" target="_blank"><img src="https://img.shields.io/github/release/Nicolab/crystal-crypt.svg" alt="GitHub release"/></a> <a href="https://nicolab.github.io/crystal-crypt/" target="_blank"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"/></a></p>
+<p><a href="https://github.com/Nicolab/crystal-crypt/actions"><img src="https://github.com/Nicolab/crystal-crypt/workflows/CI/badge.svg?branch=master" alt="CI Status"/></a> <a href="https://github.com/Nicolab/crystal-crypt/releases"><img src="https://img.shields.io/github/release/Nicolab/crystal-crypt.svg" alt="GitHub release"/></a> <a href="https://nicolab.github.io/crystal-crypt/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"/></a></p>
 
-<p>Cryptographic utilities made easy for <a href="https://crystal-lang.org" target="_blank">Crystal lang</a>.</p>
+<p>Cryptographic utilities made easy for <a href="https://crystal-lang.org">Crystal lang</a>.</p>
 
 <p>This module provides cryptographic features, with abstractions on top of OpenSSL
 and Crypto (included in the Crystal standard-library).</p>
@@ -140,7 +140,7 @@ so each module must be included when you need it.</p>
   </svg>
 </a>OpenSSL Cipher: Encrypt / Decrypt</h3>
 
-<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt/Crypter.html" target="_blank">API doc: Crypt::Crypter</a></blockquote>
+<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt/Crypter.html">API doc: Crypt::Crypter</a></blockquote>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;crypt&quot;</span>
 <span class="k">require</span> <span class="s">&quot;crypt/crypter&quot;</span>
@@ -215,7 +215,7 @@ puts signed_data
 puts signer.verify(signed_data)         <span class="c"># =&gt; &quot;Hello Crystal!&quot;</span>
 puts signer.verify(signed_data) <span class="o">==</span> data <span class="c"># =&gt; true</span></code></pre>
 
-<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt/Signer.html" target="_blank">API doc: Crypt::Signer</a></blockquote>
+<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt/Signer.html">API doc: Crypt::Signer</a></blockquote>
 
 <h3><a id="bcrypt-password" class="anchor" href="#bcrypt-password">
   <svg class="octicon-link" aria-hidden="true">
@@ -234,7 +234,7 @@ password <span class="o">=</span> <span class="t">Crypt</span>.create_bcrypt_pas
 password.verify(<span class="s">&quot;wrong secret&quot;</span>) <span class="c"># =&gt; false</span>
 password.verify(<span class="s">&quot;super secret&quot;</span>) <span class="c"># =&gt; true</span></code></pre>
 
-<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#create_bcrypt_password" target="_blank">API doc: Crypt.create_bcrypt_password</a></blockquote>
+<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#create_bcrypt_password">API doc: Crypt.create_bcrypt_password</a></blockquote>
 
 <hr/><p>Loads a <code>Bcrypt</code> password hash.</p>
 
@@ -250,7 +250,7 @@ password.digest  <span class="c"># =&gt; &quot;8/Po4wTL0fhdDNdAdjcKN/Fup8tGCya&q
 
 <span class="c"># password.verify(&quot;some secret&quot;)</span></code></pre>
 
-<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#load_bcrypt_password" target="_blank">API doc: Crypt.load_bcrypt_password</a></blockquote>
+<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#load_bcrypt_password">API doc: Crypt.load_bcrypt_password</a></blockquote>
 
 <h3><a id="secure-random" class="anchor" href="#secure-random">
   <svg class="octicon-link" aria-hidden="true">
@@ -263,7 +263,7 @@ password.digest  <span class="c"># =&gt; &quot;8/Po4wTL0fhdDNdAdjcKN/Fup8tGCya&q
 
 <p>See API doc:</p>
 
-<ul><li><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#random_string" target="_blank">API doc: Crypt.random_string</a></li><li><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#random_bytes" target="_blank">API doc: Crypt.random_bytes</a></li><li><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#random_bytes_string" target="_blank">API doc: Crypt.random_bytes_string</a></li></ul>
+<ul><li><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#random_string">API doc: Crypt.random_string</a></li><li><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#random_bytes">API doc: Crypt.random_bytes</a></li><li><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#random_bytes_string">API doc: Crypt.random_bytes_string</a></li></ul>
 
 <h3><a id="key-derivation" class="anchor" href="#key-derivation">
   <svg class="octicon-link" aria-hidden="true">
@@ -292,7 +292,7 @@ salt <span class="o">=</span> <span class="t">Crypt</span>.random_string(<span c
 <span class="c"># algo: sha256</span>
 <span class="t">Crypt</span>.key_deriv(password, salt, algo: <span class="n">:sha256</span>)</code></pre>
 
-<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#key_deriv" target="_blank">API doc: Crypt.key_deriv</a></blockquote>
+<blockquote><a href="https://nicolab.github.io/crystal-crypt/Crypt.html#key_deriv">API doc: Crypt.key_deriv</a></blockquote>
 
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
@@ -340,7 +340,7 @@ just format
   </svg>
 </a>LICENSE</h2>
 
-<p><a href="https://github.com/Nicolab/crystal-crypt/blob/master/LICENSE" target="_blank">MIT</a> (c) 2020, Nicolas Talle.</p>
+<p><a href="https://github.com/Nicolab/crystal-crypt/blob/master/LICENSE">MIT</a> (c) 2020, Nicolas Talle.</p>
 
 <h2><a id="author" class="anchor" href="#author">
   <svg class="octicon-link" aria-hidden="true">
@@ -348,10 +348,10 @@ just format
   </svg>
 </a>Author</h2>
 
-<p>| <a href="https://github.com/sponsors/Nicolab" target="_blank"><img src="https://www.gravatar.com/avatar/d7dd0f4769f3aa48a3ecb308f0b457fc?s=64" alt="Nicolas Tallefourtane - Nicolab.net"/></a> |
+<p>| <a href="https://github.com/sponsors/Nicolab"><img src="https://www.gravatar.com/avatar/d7dd0f4769f3aa48a3ecb308f0b457fc?s=64" alt="Nicolas Tallefourtane - Nicolab.net"/></a> |
 |---|
-| <a href="https://github.com/sponsors/Nicolab" target="_blank">Nicolas Talle</a> |
-| <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PGRH4ZXP36GUC" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Make a donation via Paypal"/></a> |</p>
+| <a href="https://github.com/sponsors/Nicolab">Nicolas Talle</a> |
+| <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PGRH4ZXP36GUC"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Make a donation via Paypal"/></a> |</p>
 </div>
 </body>
 </html>
