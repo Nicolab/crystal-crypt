@@ -45,4 +45,6 @@ alias f := format
     ! grep --color -Enr '.{101}' src/**.cr
     ! grep --color -Enr '.{101}' spec/**.cr
     crystal tool format --check ./src ./spec
+    echo Checking with Ameba linter
+    ./bin/ameba
     @# check done!
